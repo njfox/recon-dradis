@@ -129,24 +129,28 @@ def update_hostnames(pd, project_id, node_id, hostnames):
     nmap_host_note = pd.get_note(project_id, node_id, nmap_host_note_id)
     ip = nmap_host_note["fields"]["IP"]
     text = nmap_host_note["text"]
+    category_id = nmap_host_note["category_id"]
     
-    print "[+] Updating hostnames for %s" % ip
     hostnames_index = text.find("#[Hostnames]#")
     hostnames_end_index = text.find("#[OS]#")
     hostnames_field = text[hostnames_index:hostnames_end_index].strip()
     hostnames_field += "\r\n"
 
+    updated = False
     for hostname in hostnames:
         if hostname not in hostnames_field:
             print "[+] Adding %s to %s" % (hostname, ip)
             hostnames_field += hostname + "\r\n"
+            updated = True
         else:
             print "[+] Hostname %s already exists for %s" % (hostname, ip)
 
     hostnames_field += "\r\n"
     
     updated_text = text[:hostnames_index] + hostnames_field + text[hostnames_end_index:]
-    pd.update_note(project_id, node_id, nmap_host_note_id, updated_text)
+    if updated:
+        print "[+] Updating hostnames for %s" % ip
+        pd.update_note(project_id, node_id, nmap_host_note_id, updated_text, category=category_id)
 
 
 if __name__ == "__main__":

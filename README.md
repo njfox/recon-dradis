@@ -3,6 +3,13 @@ recon-dradis attempts to automate hostname reconaissance by running various tool
 1. Sublist3r (https://github.com/aboul3la/Sublist3r)
 ## Warning
 Please note that this tool is still in very early stages of development and may contain bugs. Please try it against a test/mock Dradis project to make sure you don't lose any important data in the event something goes wrong.
+## Dependencies
+This package requires the following Python modules: `ipaddress`, `requests`, `dnspython`, and `argparse`.
+
+Installation on Debian/Ubuntu:
+```
+$ sudo apt-get install python-requests python-dnspython python-argparse python-ipaddress
+```
 ## Getting Started
 1. Clone the repository (be sure to include `--recurse-submodules`):  
 ```

@@ -21,17 +21,17 @@ $ git update-index --assume-unchanged dradis_config.json
 
 #[OS]#
 ```
-You may need to edit the Nmap plugin settings in the plugin manager to create this structure.
+You may need to edit the Nmap plugin settings in the plugin manager to create this structure.  
 
-4. Run the tool. At minimum, you must specify a domain with `-d` and a Dradis project name with `-p`:
+5. Run the tool. At minimum, you must specify a domain with `-d` and a Dradis project name with `-p`:
 ```
 $ ./recon-dradis.py -d example.com -p "Example Penetration Test"
 ```
-5. Optionally, you may specify a line-separated list of target domains with `-f`/`--domain-file`
+6. Optionally, you may specify a line-separated list of target domains with `-f`/`--domain-file`
 ```
 $ ./recon-dradis.py -f domains.txt -p "Example Penetration Test"
 ```
-6. You may also specify a line-separated list of in-scope network ranges with `-s`/`--scope-file`. Only IP addresses in these ranges will be modified in the Dradis project. If no scope file is defined, all IP addresses discovered will be considered in-scope.
+7. You may also specify a line-separated list of in-scope network ranges with `-s`/`--scope-file`. Only IP addresses in these ranges will be modified in the Dradis project. If no scope file is defined, all IP addresses discovered will be considered in-scope.
 ```
 $ ./recon-dradis.py -f domains.txt -s scope.txt -p "Example Penetration Test"
 ```

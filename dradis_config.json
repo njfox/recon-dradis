@@ -1,0 +1,6 @@
+{
+    "api_key":"DRADIS_API_KEY",
+    "dradis_url":"https://host.com:4444",
+    "debug":false,
+    "verify":true
+}

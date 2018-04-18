@@ -1,0 +1,3 @@
+[submodule "pydradis"]
+	path = pydradis
+	url = https://github.com/njfox/pydradis.git

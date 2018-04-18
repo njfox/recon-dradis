@@ -14,6 +14,15 @@ $ git clone --recurse-submodules https://github.com/njfox/recon-dradis && cd rec
 ```
 $ git update-index --assume-unchanged dradis_config.json
 ```
+4. Open your Dradis project and upload your Nmap scan. `recon-dradis` assumes your nodes have been imported from an Nmap XML, are under the `plugin.output` root node, and contain a note with the following structure somewhere in it:
+```
+#[Hostnames]#
+<hostnames discovered by Nmap, if any>
+
+#[OS]#
+```
+You may need to edit the Nmap plugin settings in the plugin manager to create this structure.
+
 4. Run the tool. At minimum, you must specify a domain with `-d` and a Dradis project name with `-p`:
 ```
 $ ./recon-dradis.py -d example.com -p "Example Penetration Test"

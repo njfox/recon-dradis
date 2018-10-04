@@ -107,7 +107,7 @@ def find_project_id(pd, name):
 
 def find_subdomains(domain):
     print "[+] Running sublist3r to find subdomains of %s..." % domain
-    return sublist3r.main(domain, 40, '', ports= None, silent=True, verbose=False, enable_bruteforce= False, engines=None)
+    return sublist3r.main(domain, 40, '', ports= None, silent=True, verbose=True, enable_bruteforce=True, engines=None)
 
 
 def is_in_scope(ip, scope):
